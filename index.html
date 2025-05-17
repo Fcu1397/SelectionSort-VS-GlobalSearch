@@ -1,0 +1,38 @@
+<!DOCTYPE html> <!-- HTML5 文件聲明 -->
+<html lang="zh-Hant"> <!-- 設定文件語言為繁體中文 -->
+
+<head>
+    <meta charset="UTF-8" /> <!-- 設定編碼為 UTF-8，確保中文顯示正常 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 響應式設計，支援手機與平板顯示 -->
+    <title>演算法互動模擬器</title> <!-- 瀏覽器分頁的標題 -->
+    <link rel="stylesheet" href="style.css"> <!-- 連結外部 CSS 樣式表 -->
+</head>
+
+<body> <!-- 開始網頁主體內容 -->
+<h1>互動式演算法模擬</h1> <!-- 頁面主標題 -->
+<div class="header"> <!-- 頁首區域 -->
+    <label for="algorithmSelect">選擇要執行的演算法：</label> <!-- 下拉選單說明文字 -->
+    <select id="algorithmSelect" onchange="checkAvailability()"> <!-- 當選項改變時會執行 checkAvailability() -->
+        <option value="selection">選擇排序</option> <!-- 提供「選擇排序」選項 -->
+        <option value="random" disabled>全域搜尋（請先執行選擇排序）</option> <!-- 預設禁用的「全域搜尋」選項 -->
+    </select>
+    <button onclick="startSelectedAlgorithm()">START</button> <!-- 執行目前選取的演算法 -->
+    <button onclick="resetSimulation()">RESET</button> <!-- 將模擬器狀態重設為初始 -->
+</div>
+
+<div class="container"> <!-- 外層容器，用於包裹內容區域 -->
+    <div class="panel"> <!-- 視覺化面板區 -->
+        <h3>排序視覺化</h3> <!-- 子標題：表示下方是動畫顯示區 -->
+        <div id="bars" class="bars"></div> <!-- 用來顯示柱狀圖動畫 -->
+        <div class="info" id="info"></div> <!-- 顯示即時資訊或提示內容 -->
+    </div>
+</div>
+
+<div id="log"> <!-- 執行紀錄區塊 -->
+    <h3>執行紀錄：</h3> <!-- 標題：顯示過去執行的步驟 -->
+    <ul id="logList"></ul> <!-- 使用清單方式記錄每個步驟 -->
+</div>
+
+<script src="main.js"></script> <!-- 引入外部 JavaScript 檔，處理互動與動畫邏輯 -->
+</body>
+</html>

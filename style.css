@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #3b82f6;     /* 主色：藍色 */
+    --accent-color: #f97316;      /* 強調色：橘色，用於高亮 */
+    --bg-color: bisque;           /* bisque色背景 */
+    --card-color: #ffffff;        /* 白色卡片背景 */
+    --border-color: #e5e7eb;      /* 淺灰邊框 */
+    --text-color: #1f2937;        /* 深灰文字主色 */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;              /* 設定字型 */
+    background-color: var(--bg-color);                /* 使用背景色變數 */
+    color: var(--text-color);                         /* 使用文字色變數 */
+    padding: 40px;                                     /* 外距，給整體一點呼吸空間 */
+    margin: 0;                                         /* 移除預設邊距 */
+}
+
+.header {
+    display: flex;
+    justify-content: center; /* 水平置中整個 header */
+    align-items: center;    /* 垂直置中整個 header */
+    text-align: left;       /* 取消文字置中 */
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;                               /* 標題置中 */
+    font-size: 2rem;                                  /* 放大標題字體 */
+    margin-bottom: 1rem;                              /* 底部留空 */
+}
+
+label, select, button {
+    font-size: 1rem;                                  /* 一致的文字大小 */
+}
+
+label {
+    font-weight: bold;                                /* 加粗標籤文字 */
+    margin-right: 10px;                              /* 標籤與下拉選單間距 */
+}
+
+select, button {
+    padding: 0.5rem 1rem;                             /* 內距，增加可點擊範圍 */
+    border-radius: 0.5rem;                            /* 圓角設計 */
+    border: 1px solid var(--border-color);            /* 淺灰邊框 */
+    background-color: var(--card-color);              /* 白色背景 */
+    cursor: pointer;                                  /* 滑鼠移上呈現手型 */
+    transition: all 0.3s ease;                        /* 增加過渡動畫效果 */
+}
+
+button {
+    margin-left: 10px;                               /* 按鈕與下拉選單間距 */
+}
+
+select:disabled, button:disabled {
+    opacity: 0.5;                                     /* 淡化已停用元素 */
+    cursor: not-allowed;                              /* 顯示不可互動狀態 */
+}
+
+button:hover:not(:disabled), select:hover:not(:disabled) {
+    background-color: var(--card-color); /* 保持背景色不變 */
+    color: var(--text-color);           /* 保持文字色不變 */
+    border-color: var(--primary-color); /* 改變外框顏色 */
+}
+
+.controls {
+    text-align: center;                               /* 置中排列按鈕區 */
+    margin-bottom: 1rem;                              /* 與下方區塊保留空間 */
+}
+
+.container {
+    display: flex;                                     /* 使用 Flexbox 排版 */
+    justify-content: center;                          /* 水平置中 */
+    gap: 20px;                                         /* 元素間距 */
+}
+
+.panel {
+    background-color: var(--card-color);              /* 白色背景卡片 */
+    padding: 20px;                                     /* 內距 */
+    border-radius: 1rem;                               /* 圓角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);        /* 陰影增加立體感 */
+    width: 100%;                                       /* 佔滿可用寬度 */
+    max-width: 640px;                                  /* 設定最大寬度 */
+    border: 1px solid var(--border-color);            /* 邊框 */
+}
+
+.bars {
+    display: flex;                                     /* Flex 排列柱狀圖 */
+    align-items: flex-end;                             /* 將 bar 對齊底部 */
+    height: 250px;                                     /* 整體高度 */
+    margin: 20px 0;                                    /* 上下間距 */
+    gap: 4px;                                          /* bar 間距 */
+    background-color: #f3f4f6;                         /* 淺灰背景 */
+    border-radius: 0.75rem;                            /* 圓角 */
+    padding: 10px;                                     /* 內距 */
+}
+
+.bar {
+    width: 100%;                                       /* 寬度會根據欄位總數等比縮放 */
+    background-color: var(--primary-color);           /* 預設藍色 bar */
+    border-radius: 0.375rem;                           /* 圓角條狀圖 */
+    transition: height 0.3s ease;                      /* bar 動畫效果（改變高度） */
+}
+
+.highlight {
+    background-color: var(--accent-color) !important; /* 被強調的 bar（橘色） */
+}
+
+.info {
+    font-size: 0.9rem;                                 /* 略小字體 */
+    text-align: center;                               /* 文字置中 */
+    margin-top: 10px;                                  /* 上方間距 */
+}
+
+#log {
+    max-width: 640px;                                  /* 記錄區最大寬度 */
+    margin: 2rem auto;                                 /* 垂直間距、自動置中 */
+    background-color: var(--card-color);              /* 背景白色 */
+    padding: 20px;                                     /* 內距 */
+    border-radius: 1rem;                               /* 圓角 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);         /* 輕微陰影 */
+    font-size: 0.9rem;                                 /* 字體略小 */
+    border: 1px solid var(--border-color);            /* 邊框 */
+}
+
+#log h3 {
+    margin-top: 0;                                     /* 移除預設上邊距 */
+}
+
+#log ul {
+    list-style: none;                                  /* 移除清單符號 */
+    padding-left: 0;                                   /* 左側內距歸零 */
+    margin: 0;                                         /* 清除上下邊距 */
+}
+
+#log li {
+    padding: 6px 0;                                    /* 每筆紀錄上下留空 */
+    border-bottom: 1px solid var(--border-color);     /* 每筆紀錄之間加一條線 */
+}
